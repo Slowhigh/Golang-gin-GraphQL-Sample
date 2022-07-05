@@ -6,24 +6,17 @@ package graph
 import (
 	"context"
 	"fmt"
-	"math/rand"
 
 	"github.com/someday-94/gqlgen-todos/graph/generated"
 	"github.com/someday-94/gqlgen-todos/graph/model"
 )
 
-func (r *mutationResolver) CreateBook(ctx context.Context, input model.NewBook) (*model.Book, error) {
-	book := &model.Book{
-		ID:      fmt.Sprintf("T%d", rand.Int()),
-		Title:   input.Title,
-		Content: input.Content,
-	}
-	r.books = append(r.books, book)
-	return book, nil
+func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Books(ctx context.Context) ([]*model.Book, error) {
-	return r.books, nil
+func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+	panic(fmt.Errorf("not implemented"))
 }
 
 // Mutation returns generated.MutationResolver implementation.
